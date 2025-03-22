@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form-insc">
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom" /><br /><br />
+      <label for="prenom">Prénom :</label>
+      <input type="text" id="prenom" name="prenom" /><br /><br />
+      <label for="adresse">Adresse :</label>
+      <input type="text" id="adresse" name="adresse" /><br /><br />
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" /><br /><br />
+      <label for="login">Login :</label>
+      <input type="text" id="login" name="login" /><br /><br />
+      <label for="password">Mot de passe :</label>
+      <input type="password" id="password" name="password" /><br /><br />
+      <label for="confirm-password">Confirmer mot de passe :</label>
+      <input
+        type="password"
+        id="confirm-password"
+        name="confirm-password"
+      /><br /><br />
+      <label for="telephone">Téléphone :</label>
+      <input type="text" id="telephone" name="telephone" /><br /><br />
+      <label for="civilite">Civilité :</label>
+      <select id="civilite" name="civilite">
+        <option value="M">M</option>
+        <option value="F">F</option>
+        <option value="Autre">Autre</option>
+      </select>
+      <br /><br />
+      <label for="pays">Pays :</label>
+      <select id="pays" name="pays">
+        <option value="Maroc">Maroc</option>
+        <option value="Algerie">Algerie</option>
+        <option value="France">France</option>
+      </select>
+      <br /><br />
+      <input type="submit" />
+    </form>
+    <script>
+      const form = document.getElementById('form-insc');
+      form.addEventListener("submit", function(event){
+          event.preventDefault();
+          let nom = document.getElementById('nom').value;
+          let prenom = document.getElementById('prenom').value;
+          let adresse = document.getElementById('adresse').value;
+          let email = document.getElementById('email').value;
+          let login = document.getElementById('login').value;
+          let password = document.getElementById('password').value;
+          let confirmPassword = document.getElementById('confirm-password').value;
+          let telephone = document.getElementById('telephone').value;
+          let civilite = document.getElementById('civilite').value;
+          let pays = document.getElementById('pays').value;
+          const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!nom || !prenom || !adresse ||!email||!login ||!password ||!confirmPassword ||!telephone ||!civilite ||!pays ){
+              alert("remplir tous les champs");
+          }else if (!regex.test(email)){
+              alert("email non valide ");
+          }else if (password !== confirmPassword){
+              alert("mot de passe non identiques");
+          }else{
+              alert("inscription reussie");
+          }
+
+
+      } );
+    </script>
+  </body>
+</html>

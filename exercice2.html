@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        function PGCD(a, b) {
+          let max = a > b ? b : a;
+          let min = a < b ? b : a;
+          let PGCD = 1;
+          for (let i = 1; i <= min; i++) {
+            if (max % i == 0 && min % i == 0) {
+              PGCD = i;
+            }
+          }
+          return PGCD;
+        }
+        let a = prompt("nombre 1:");
+        let b = prompt("nombre 2:");
+        document.write( a + " et " + b + " est : " + PGCD(a, b));
+      </script>
+      
+  </body>
+</html>
